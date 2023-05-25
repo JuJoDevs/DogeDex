@@ -1,18 +1,15 @@
 package com.jujodevs.dogedex.data
 
-import com.jujodevs.dogedex.data.network.ToDogsApi
+import com.jujodevs.dogedex.core.networks.ApiResponseStatus
+import com.jujodevs.dogedex.data.networks.BaseRepository
+import com.jujodevs.dogedex.data.networks.ToDogsApi
 import com.jujodevs.dogedex.domain.model.Dog
 import com.jujodevs.dogedex.domain.model.toDomain
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class DogRepository @Inject constructor(private val toDogsApi: ToDogsApi) {
+class DogRepository @Inject constructor(private val toDogsApi: ToDogsApi): BaseRepository() {
 
-    suspend fun downloadDogs(): List<Dog> {
-        return withContext(Dispatchers.IO) {
-            toDogsApi.getAllDogs().data.dogs.map { it.toDomain() }
-        }
-    }
+    suspend fun downloadDogs(): ApiResponseStatus<List<Dog>> =
+        makeNetworkCall { toDogsApi.getAllDogs().data.dogs.map { it.toDomain() } }
 
 }

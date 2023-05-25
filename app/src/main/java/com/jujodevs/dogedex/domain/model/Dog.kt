@@ -1,7 +1,7 @@
 package com.jujodevs.dogedex.domain.model
 
 import android.os.Parcelable
-import com.jujodevs.dogedex.data.network.model.DogResponse
+import com.jujodevs.dogedex.data.networks.model.DogResponse
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
