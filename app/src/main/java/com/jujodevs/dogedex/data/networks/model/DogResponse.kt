@@ -1,4 +1,4 @@
-package com.jujodevs.dogedex.data.network.model
+package com.jujodevs.dogedex.data.networks.model
 
 
 import com.google.gson.annotations.SerializedName

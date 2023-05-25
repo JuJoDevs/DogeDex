@@ -1,7 +1,7 @@
 package com.jujodevs.dogedex.core
 
 import com.jujodevs.dogedex.BASE_URL
-import com.jujodevs.dogedex.data.network.ToDogsApi
+import com.jujodevs.dogedex.data.networks.ToDogsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

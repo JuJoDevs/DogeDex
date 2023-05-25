@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Toast
+import coil.load
 import com.jujodevs.dogedex.R
 import com.jujodevs.dogedex.databinding.ActivityDogDetailBinding
 import com.jujodevs.dogedex.domain.model.Dog
@@ -42,5 +43,6 @@ class DogDetailActivity : AppCompatActivity() {
         binding.dogIndex.text = getString(R.string.dog_index_format, dog.index)
         binding.lifeExpectancy.text = getString(R.string.dog_life_expectancy_format, dog.lifeExpectancy)
         binding.dog = dog
+        binding.dogImage.load(dog.imageUrl)
     }
 }
