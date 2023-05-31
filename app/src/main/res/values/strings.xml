@@ -42,4 +42,7 @@
     <string name="imagen_de_perro">Dog Image</string>
     <string name="close_icon">Close Icon</string>
     <string name="dog_image">dog_image</string>
+    <string name="take_photo">Take photo</string>
+    <string name="open_dog_list">Open dog list</string>
+    <string name="open_settings">Open settings</string>
 </resources>
