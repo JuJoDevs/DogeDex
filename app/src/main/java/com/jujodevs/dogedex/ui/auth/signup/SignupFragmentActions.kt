@@ -1,5 +1,7 @@
 package com.jujodevs.dogedex.ui.auth.signup
 
+import com.jujodevs.dogedex.domain.model.SignUp
+
 interface SignupFragmentActions {
-    fun onSignUpFieldsValidated(email: String, password: String, passwordConfirmation: String)
+    fun onSignUpFieldsValidated(signUp: SignUp)
 }

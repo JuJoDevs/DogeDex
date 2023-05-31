@@ -1,9 +1,9 @@
-package com.jujodevs.dogedex.data.networks.model
+package com.jujodevs.dogedex.data.networks.model.dto
 
 
 import com.google.gson.annotations.SerializedName
 
-data class DogResponse(
+data class DogDTO(
     @SerializedName("id")
     val id: Int,
     @SerializedName("dog_type")

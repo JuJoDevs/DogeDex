@@ -1,19 +1,38 @@
 package com.jujodevs.dogedex.data
 
-import com.jujodevs.dogedex.data.network.ToDogsApi
-import com.jujodevs.dogedex.domain.model.Dog
+import com.jujodevs.dogedex.core.networks.ApiResponseStatus
+import com.jujodevs.dogedex.data.networks.ToDogsApi
+import com.jujodevs.dogedex.data.networks.model.dto.toDTO
+import com.jujodevs.dogedex.domain.model.Login
+import com.jujodevs.dogedex.domain.model.SignUp
+import com.jujodevs.dogedex.domain.model.User
 import com.jujodevs.dogedex.domain.model.toDomain
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
-class AuthRepository @Inject constructor(private val toDogsApi: ToDogsApi) {
+class AuthRepository @Inject constructor(private val toDogsApi: ToDogsApi): BaseRepository() {
 
-    suspend fun signUp(email: String, password: String, passwordConfirmation: String): List<Dog> {
-        return withContext(Dispatchers.IO) {
-            toDogsApi.getAllDogs().data.dogs.map { it.toDomain() }
+    suspend fun login(login: Login): ApiResponseStatus<User> =
+        makeNetworkCall {
+            val response = toDogsApi.login(login.toDTO())
+
+            if (!response.isSuccess) {
+                throw Exception(response.message)
+            }
+
+            response.data!!.user.toDomain()
         }
-    }
+
+
+    suspend fun signUp(signUp: SignUp): ApiResponseStatus<User> =
+            makeNetworkCall {
+                val response = toDogsApi.signUp(signUp.toDTO())
+
+                if (!response.isSuccess) {
+                    throw Exception(response.message)
+                }
+
+                response.data!!.user.toDomain()
+            }
 
 }

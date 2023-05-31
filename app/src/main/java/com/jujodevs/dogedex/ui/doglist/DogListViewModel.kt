@@ -35,7 +35,9 @@ class DogListViewModel @Inject constructor(
 
     private fun handleResponseStatus(apiResponseStatus: ApiResponseStatus<List<Dog>>) {
         if (apiResponseStatus is ApiResponseStatus.Success){
-            _dogList.value = apiResponseStatus.data
+            apiResponseStatus.data?.let {
+                _dogList.value = it
+            }
         }
         _status.value = apiResponseStatus
     }

@@ -2,15 +2,15 @@ package com.jujodevs.dogedex.ui.auth.signup
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Patterns
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.jujodevs.dogedex.R
 import com.jujodevs.dogedex.databinding.FragmentSignupBinding
+import com.jujodevs.dogedex.domain.model.SignUp
+import com.jujodevs.dogedex.isValidEmail
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.ClassCastException
 
 @AndroidEntryPoint
 class SignupFragment : Fragment() {
@@ -71,13 +71,7 @@ class SignupFragment : Fragment() {
             return
         }
 
-        signupFragmentActions.onSignUpFieldsValidated(email, password, passwordConfirmation)
+        signupFragmentActions.onSignUpFieldsValidated(SignUp(email, password, passwordConfirmation))
     }
-
-    private fun isValidEmail(email: String?): Boolean {
-        return !email.isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
-
-
 
 }

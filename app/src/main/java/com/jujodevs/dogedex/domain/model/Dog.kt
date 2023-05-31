@@ -1,7 +1,7 @@
 package com.jujodevs.dogedex.domain.model
 
 import android.os.Parcelable
-import com.jujodevs.dogedex.data.networks.model.DogResponse
+import com.jujodevs.dogedex.data.networks.model.dto.DogDTO
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -19,7 +19,7 @@ data class Dog(
     val weightMale: String
 ) : Parcelable
 
-fun DogResponse.toDomain() =
+fun DogDTO.toDomain() =
     Dog(
         id.toLong(),
         index,
