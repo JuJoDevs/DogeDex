@@ -22,4 +22,5 @@ interface ToDogsApi {
     @POST(SIGN_IN_URL)
     suspend fun login(@Body loginDTO: LoginDTO): AuthUpResponse
 
+
 }

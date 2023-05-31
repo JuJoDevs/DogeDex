@@ -1,6 +1,7 @@
 package com.jujodevs.dogedex.data
 
 import com.jujodevs.dogedex.core.networks.ApiResponseStatus
+import com.jujodevs.dogedex.data.networks.BaseRepository
 import com.jujodevs.dogedex.data.networks.ToDogsApi
 import com.jujodevs.dogedex.domain.model.Dog
 import com.jujodevs.dogedex.domain.model.toDomain
