@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.jujodevs.dogedex.domain.model.Dog
 import com.jujodevs.dogedex.databinding.DogListItemBinding
+import com.jujodevs.dogedex.domain.model.Dog
 import javax.inject.Inject
 
 class DogAdapter @Inject constructor(): ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallback) {
